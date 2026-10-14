@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Cognify AI | Learning Assistant</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <a class="brand" href="/">
+            <span class="brand-icon">✦</span>
+            <span>Cognify <b>AI</b></span>
+        </a>
+
+        <p class="nav-label">LEARNING SPACE</p>
+
+        <a class="nav-item active" href="/">▦ &nbsp; Dashboard</a>
+
+        <div class="side-note">
+            <div class="note-icon">✧</div>
+            <h3>Learn something new</h3>
+            <p>Ask questions, explore ideas, and build your knowledge with AI.</p>
+        </div>
+
+        <div class="sidebar-bottom">
+            Generative AI Learning Assistant
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div>Workspace <span>/</span> Dashboard</div>
+            <div class="status"><i></i> AI learning space</div>
+        </header>
+
+        <section class="welcome">
+            <div>
+                <p class="eyebrow">YOUR PERSONAL LEARNING COMPANION</p>
+                <h1>Make learning <span>click.</span></h1>
+                <p class="welcome-copy">
+                    Explore new concepts, test your knowledge, and turn
+                    difficult topics into clear ideas.
+                </p>
+            </div>
+
+            <div class="hero-art">
+                <div class="orb">✦</div>
+                <div class="orbit"></div>
+            </div>
+        </section>
+
+        <section class="section-heading">
+            <h2>What would you like to do?</h2>
+            <p>Choose a learning tool to get started.</p>
+        </section>
+
+        <section class="feature-grid">
+            <button type="button" class="feature-card lavender"
+                    data-feature="Question Answering">
+                <span class="feature-icon">☷</span>
+                <span class="arrow">↗</span>
+                <h3>Ask a question</h3>
+                <p>Get clear answers to the things you're curious about.</p>
+                <b>Ask AI →</b>
+            </button>
+
+            <button type="button" class="feature-card mint"
+                    data-feature="Concept Explanation">
+                <span class="feature-icon">◈</span>
+                <span class="arrow">↗</span>
+                <h3>Explain a concept</h3>
+                <p>Break down complex ideas into simple explanations.</p>
+                <b>Understand more →</b>
+            </button>
+
+            <button type="button" class="feature-card peach"
+                    data-feature="Quiz Generation">
+                <span class="feature-icon">✓</span>
+                <span class="arrow">↗</span>
+                <h3>Generate a quiz</h3>
+                <p>Practice a topic with AI-generated questions.</p>
+                <b>Test yourself →</b>
+            </button>
+
+            <button type="button" class="feature-card blue"
+                    data-feature="Text Summarization">
+                <span class="feature-icon">≡</span>
+                <span class="arrow">↗</span>
+                <h3>Summarize text</h3>
+                <p>Turn study material into key points.</p>
+                <b>Get key points →</b>
+            </button>
+
+            <button type="button" class="feature-card pink"
+                    data-feature="Learning Path">
+                <span class="feature-icon">⌁</span>
+                <span class="arrow">↗</span>
+                <h3>Build a learning path</h3>
+                <p>Get a step-by-step roadmap for a subject.</p>
+                <b>Plan my learning →</b>
+            </button>
+        </section>
+
+        <section class="workspace" id="workspace">
+            <div class="workspace-title">
+                <div>
+                    <p class="eyebrow">AI WORKSPACE</p>
+                    <h2 id="form-title">Start with a question</h2>
+                </div>
+                <span class="sparkle">✦</span>
+            </div>
+
+            <form action="/ask" method="post">
+                <input
+                    type="hidden"
+                    name="feature"
+                    id="feature"
+                    value="{{ feature or 'Question Answering' }}"
+                >
+
+                <label for="prompt">Your topic or question</label>
+
+                <textarea
+                    id="prompt"
+                    name="prompt"
+                    rows="4"
+                    placeholder="For example: Explain how photosynthesis works..."
+                    required
+                >{{ prompt or '' }}</textarea>
+
+                <div class="form-footer">
+                    <span>Tip: Be specific for a more useful answer.</span>
+                    <button class="submit-btn" type="submit">
+                        Generate response →
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        {% if result %}
+        <section class="result-panel">
+            <p class="eyebrow">{{ feature }}</p>
+            <h2>Your learning response</h2>
+            <div class="result-text">{{ result }}</div>
+        </section>
+        {% endif %}
+
+        <footer>Made for curious minds ✦ Cognify AI</footer>
+    </main>
+
+    <script src="{{ url_for('static', path='/script.js') }}"></script>
+</body>
+</html>

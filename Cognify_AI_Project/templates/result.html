@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Cognify AI | Your Results</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', path='/style.css') }}">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <a class="brand" href="/">
+            <span class="brand-icon">✦</span>
+            <span>Cognify <b>AI</b></span>
+        </a>
+
+        <p class="nav-label">LEARNING SPACE</p>
+        <a class="nav-item active" href="/">▦ &nbsp; Dashboard</a>
+
+        <div class="side-note">
+            <div class="note-icon">✧</div>
+            <h3>Keep learning</h3>
+            <p>Your AI-generated learning response is ready.</p>
+        </div>
+
+        <div class="sidebar-bottom">
+            Generative AI Learning Assistant
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div>Workspace <span>/</span> Results</div>
+            <div class="status"><i></i> AI learning space</div>
+        </header>
+
+        <section class="welcome">
+            <div>
+                <p class="eyebrow">YOUR PERSONAL LEARNING COMPANION</p>
+                <h1>Your results are <span>ready.</span></h1>
+                <p class="welcome-copy">
+                    Explore your generated response and continue learning.
+                </p>
+            </div>
+        </section>
+
+        <section class="result-panel">
+            <p class="eyebrow">{{ feature }}</p>
+            <h2>Your learning response</h2>
+
+            <div class="result-text">{{ result }}</div>
+
+            <div style="margin-top: 24px;">
+                <a href="/"
+                   style="display: inline-block; text-decoration: none;">
+                    ← Back to Dashboard
+                </a>
+            </div>
+        </section>
+
+        <footer>Made for curious minds ✦ Cognify AI</footer>
+    </main>
+</body>
+</html>
